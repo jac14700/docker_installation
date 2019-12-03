@@ -49,9 +49,9 @@ reboot
 安裝驅動
 
 ```shell
-sudo add-apt-repository ppa:graphics-drivers/ppa 
+sudo add-apt-repository ppa:graphics-drivers/ppa #此部分需要依GPU型號和Ubuntu版本挑選適合的driver，不相同
 sudo apt-get update
-sudo apt-get install nvidia-driver-418
+sudo apt-get install nvidia-driver-418 #此部分也是不一樣
 sudo service gdm3 start
 reboot
 ```
@@ -86,7 +86,8 @@ sudo ./cuda_9.1.85_387.26_linux.run –override
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04?fbclid=IwAR3D4T707CRGAX-iIL0OEUoZD8b4u3V-czKF8wPrfFkTCkJCCgN2EfEL4pY
 
 
-Step 1 — 安裝 Docker
+Step 1 — 安裝 Docker(切記：不可以忘記要搭配 nvidia-docker的版本)
+
 ```shell
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -94,7 +95,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update
 apt-cache policy docker-ce
-sudo apt install docker-ce
+sudo apt install docker-ce #這裡會依照nvidia-docker版本來安裝你所需的docker-ce版本，先查一下nvidia-docker的版本搭配如何，再進行安裝會快很多
 sudo systemctl status docker
 ```
 ![image](https://github.com/jac14700/docker_installation/tree/master/im/3.jpg)
