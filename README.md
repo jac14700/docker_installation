@@ -108,15 +108,25 @@ sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 
 ![image](https://github.com/jac14700/docker_installation/tree/master/im/docker%20nvidia-smi.png)
 
-測試Nvidia-docker有沒有辦法連到gpu實際運算
+測試Nvidia-docker有沒有辦法連到gpu實際運算，開一個container以python執行下列code
 
 ```shell
-docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
-   python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
+import tensorflow as tf
+a = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[2, 3], name='a')
+b = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], shape=[3, 2], name='b')
+c = tf.matmul(a, b)
+# Creates a session with log_device_placement set to True.
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+# Runs the op.
+print(sess.run(c))
 ```
 
 跑出來的結果
-![image](https://github.com/jac14700/docker_installation/tree/master/im/gpu_connect_test.png)
+```shell
+[[22. 28.]
+ [49. 64.]]
+```
+
 
 開一個對外的port，讓外部用戶可以連進140.115.59.124 的一個docker image來訓練資料或是進行其他計算複雜的程式
 ```shell
