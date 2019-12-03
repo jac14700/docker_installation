@@ -55,7 +55,7 @@ sudo apt-get install nvidia-driver-418
 sudo service gdm3 start
 reboot
 ```
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/ubuntu%20driver-device.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/ubuntu%20driver-device.png)
 
 
 進入桌面，執行下面的命令，查看驅動的安裝狀態
@@ -64,14 +64,14 @@ sudo nvidia-smi
 ```
 若有安裝成功應該出現以下畫面
 
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/nvidia-smi.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/nvidia-smi.png)
 
 
 # 3.CUDA installation
 
 先上Cuda官網安裝toolkit(請記得選擇是當的OS系統，如下，但請看你真實的系統)
 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1704&target_type=runfilelocal
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/CUDA.jpg)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/CUDA.jpg)
 
 接下來，如下網站進行裏頭的三行指令，cuda_9.1這邊要自己更動
 https://mark-down-now.blogspot.com/2018/05/pytorch-gpu-ubuntu-1804.html?fbclid=IwAR1clPJPvKOX0po0NkaL0rs96dH9Vv9gKQhmmSKGg-YpI0w9WzRsxMebgl4
