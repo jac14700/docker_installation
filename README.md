@@ -97,7 +97,7 @@ apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo systemctl status docker
 ```
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/3.jpg)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/3.jpg)
 
 Step 2 — Install nvidia-docker
 ```shell
@@ -106,7 +106,7 @@ sudo apt-get install -y nvidia-docker2=2.0.3+docker18.09.4-1 nvidia-container-ru
 sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 ```
 
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/docker%20nvidia-smi.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/docker%20nvidia-smi.png)
 
 測試Nvidia-docker有沒有辦法連到gpu實際運算
 
@@ -116,7 +116,7 @@ docker run --runtime=nvidia -it --rm tensorflow/tensorflow:latest-gpu \
 ```
 
 跑出來的結果
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/gpu_connect_test.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/gpu_connect_test.png)
 
 開一個對外的port，讓外部用戶可以連進140.115.59.124 的一個docker image來訓練資料或是進行其他計算複雜的程式
 ```shell
@@ -124,13 +124,13 @@ sudo docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jov
 ```
 開啟之後輸出應該長這樣
 
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/key_token.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/key_token.png)
 
 開啟網頁在網址上打入 sever端IP:port ，我們的IP是140.115.59.124 ，剛剛開啟的port是10000 ，如下圖
 
 password 可以貼token
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/jupyter_enterance.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyter_enterance.png)
 
 進入後應如下
 
-![image](https://github.com/ncuipvr/RoadToHell/blob/master/im/jupyterLab.png)
+![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyterLab.png)
