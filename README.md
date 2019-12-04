@@ -22,7 +22,7 @@ http://chiustin.blogspot.com/2019/01/ubuntu-1804-nvidia.html
 安裝前的套件
 
 ```shell
-sudo apt-get install gcc
+sudo apt-get install gcc222222222
 sudo apt-get install make
 ```
 下面這行用以退出可能正在使用GPU的任何程序，才能進行安裝nvidia-driver
@@ -109,6 +109,26 @@ sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 
 ![image](https://github.com/jac14700/docker_installation/tree/master/im/docker%20nvidia-smi.png)
 
+
+開一個對外的port，讓外部用戶可以連進140.115.59.124 的一個docker image來訓練資料或是進行其他計算複雜的程式
+```shell
+sudo docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/datascience-notebook:9b06df75e445
+```
+開啟之後輸出應該長這樣
+
+![image](https://github.com/jac14700/docker_installation/tree/master/im/key_token.png)
+
+開啟網頁在網址上打入 sever端IP:port ，我們的IP是140.115.59.124 ，剛剛開啟的port是10000 ，如下圖
+
+password 可以貼token
+![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyter_enterance.png)
+
+進入後應如下
+
+![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyterLab.png)
+
+
+
 測試Nvidia-docker有沒有辦法連到gpu實際運算，開一個container以python執行下列code
 
 ```shell
@@ -128,20 +148,18 @@ print(sess.run(c))
  [49. 64.]]
 ```
 
+#安裝OpenCV 4 for Python on Ubuntu 18.04 Linux
+https://www.youtube.com/watch?v=cGmGOi2kkJ4
 
-開一個對外的port，讓外部用戶可以連進140.115.59.124 的一個docker image來訓練資料或是進行其他計算複雜的程式
 ```shell
-sudo docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/datascience-notebook:9b06df75e445
+sudo apt update
+#To install OpenCV Via PIP give the following command
+pip install opencv-python
+
+#Test OpenCV Installation
+ python
+ import cv2
+ print(cv2.__version__)
+'4.0.0'
 ```
-開啟之後輸出應該長這樣
 
-![image](https://github.com/jac14700/docker_installation/tree/master/im/key_token.png)
-
-開啟網頁在網址上打入 sever端IP:port ，我們的IP是140.115.59.124 ，剛剛開啟的port是10000 ，如下圖
-
-password 可以貼token
-![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyter_enterance.png)
-
-進入後應如下
-
-![image](https://github.com/jac14700/docker_installation/tree/master/im/jupyterLab.png)
