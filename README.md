@@ -148,7 +148,7 @@ print(sess.run(c))
  [49. 64.]]
 ```
 
-#安裝OpenCV 4 for Python on Ubuntu 18.04 Linux
+# 安裝OpenCV 4 for Python on Ubuntu 18.04 Linux
 https://www.youtube.com/watch?v=cGmGOi2kkJ4
 
 ```shell
