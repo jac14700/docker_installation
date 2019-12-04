@@ -22,7 +22,7 @@ http://chiustin.blogspot.com/2019/01/ubuntu-1804-nvidia.html
 安裝前的套件
 
 ```shell
-sudo apt-get install gcc222222222
+sudo apt-get install gcc
 sudo apt-get install make
 ```
 下面這行用以退出可能正在使用GPU的任何程序，才能進行安裝nvidia-driver
